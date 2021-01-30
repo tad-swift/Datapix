@@ -11,7 +11,16 @@ import SwiftUI
 struct DatapixApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            #if os(macOS)
+            NavigationView {
+                Sidebar()
+                ContentView()
+            }
+            #else
+            NavigationView {
+                HomeScreen()
+            }
+            #endif
         }
     }
 }
