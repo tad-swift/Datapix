@@ -9,7 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Datapix")
+        #if os(macOS)
+        PreviewScreenMac()
+        #else
+        PreviewScreen()
+        #endif
+        
     }
 }
 

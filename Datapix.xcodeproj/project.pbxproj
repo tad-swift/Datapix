@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4510BBDF25C635D50032C7EF /* Editbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510BBDE25C635D50032C7EF /* Editbar.swift */; };
+		4510BBE325C63E670032C7EF /* PreviewScreenMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510BBE225C63E670032C7EF /* PreviewScreenMac.swift */; };
+		4510BBE725C641770032C7EF /* BrushScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510BBE625C641770032C7EF /* BrushScreen.swift */; };
+		4510BBEB25C6418D0032C7EF /* TextScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510BBEA25C6418D0032C7EF /* TextScreen.swift */; };
 		454A2FA825C5B52500DB555B /* DatapixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2F9525C5B52300DB555B /* DatapixApp.swift */; };
 		454A2FA925C5B52500DB555B /* DatapixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2F9525C5B52300DB555B /* DatapixApp.swift */; };
 		454A2FAA25C5B52500DB555B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2F9625C5B52300DB555B /* ContentView.swift */; };
@@ -42,6 +46,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4510BBDE25C635D50032C7EF /* Editbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editbar.swift; sourceTree = "<group>"; };
+		4510BBE225C63E670032C7EF /* PreviewScreenMac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewScreenMac.swift; sourceTree = "<group>"; };
+		4510BBE625C641770032C7EF /* BrushScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushScreen.swift; sourceTree = "<group>"; };
+		4510BBEA25C6418D0032C7EF /* TextScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScreen.swift; sourceTree = "<group>"; };
 		454A2F9525C5B52300DB555B /* DatapixApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatapixApp.swift; sourceTree = "<group>"; };
 		454A2F9625C5B52300DB555B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		454A2F9C25C5B52500DB555B /* Datapix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Datapix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +144,10 @@
 			children = (
 				454A2FA625C5B52500DB555B /* Info.plist */,
 				454A2FA725C5B52500DB555B /* macOS.entitlements */,
+				4510BBE625C641770032C7EF /* BrushScreen.swift */,
+				4510BBEA25C6418D0032C7EF /* TextScreen.swift */,
+				4510BBE225C63E670032C7EF /* PreviewScreenMac.swift */,
+				4510BBDE25C635D50032C7EF /* Editbar.swift */,
 				454A2FB825C5B76F00DB555B /* Sidebar.swift */,
 			);
 			path = macOS;
@@ -301,12 +313,16 @@
 			files = (
 				454A2FAB25C5B52500DB555B /* ContentView.swift in Sources */,
 				454A2FB925C5B76F00DB555B /* Sidebar.swift in Sources */,
+				4510BBE325C63E670032C7EF /* PreviewScreenMac.swift in Sources */,
 				454A2FA925C5B52500DB555B /* DatapixApp.swift in Sources */,
+				4510BBEB25C6418D0032C7EF /* TextScreen.swift in Sources */,
 				454A2FDB25C5B95A00DB555B /* UserSettings.swift in Sources */,
 				454A300525C5BA0D00DB555B /* TextAdjustmentsScreen.swift in Sources */,
 				454A300125C5BA0D00DB555B /* SettingsScreen.swift in Sources */,
 				454A300D25C5BA0D00DB555B /* BlurStyleScreen.swift in Sources */,
+				4510BBDF25C635D50032C7EF /* Editbar.swift in Sources */,
 				454A2FC925C5B93B00DB555B /* Constants.swift in Sources */,
+				4510BBE725C641770032C7EF /* BrushScreen.swift in Sources */,
 				454A300925C5BA0D00DB555B /* AddMoreInfoScreen.swift in Sources */,
 				454A2FEB25C5B96300DB555B /* BlurStyleCheckBox.swift in Sources */,
 				454A300325C5BA0D00DB555B /* BlurStrengthScreen.swift in Sources */,

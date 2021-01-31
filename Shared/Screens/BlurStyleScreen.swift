@@ -35,15 +35,18 @@ struct BlurStyleScreen: View {
     var body: some View {
         VStack {
             #if os(macOS)
-            Picker(selection: $userSettings.blurStyle, label: Text("")) {
-                Text("Gaussian Blur").tag("Gaussian Blur")
-                Text("Box Blur").tag("Box Blur")
-                Text("Disc Blur").tag("Disc Blur")
-                Text("Motion Blur").tag("Motion Blur")
-                Text("Zoom Blur").tag("Zoom Blur")
-                Text("Bokeh Blur").tag("Bokeh Blur")
+            HStack {
+                Picker(selection: $userSettings.blurStyle, label: Text("")) {
+                    Text("Gaussian Blur").tag("CIGaussianBlur")
+                    Text("Box Blur").tag("CIBoxBlur")
+                    Text("Disc Blur").tag("CIDiscBlur")
+                    Text("Motion Blur").tag("CIMotionBlur")
+                    Text("Zoom Blur").tag("CIZoomBlur")
+                    Text("Bokeh Blur").tag("CIBokehBlur")
+                }
+                .pickerStyle(RadioGroupPickerStyle())
+                Spacer()
             }
-            .pickerStyle(RadioGroupPickerStyle())
             Spacer()
             #else
             RadioButtonGroup(items: blurTypes, selectedId: selectedBlur) { selected in
@@ -67,6 +70,7 @@ struct BlurStyleScreen: View {
             Spacer()
             #endif
         }
+        .font(.system(size: 17, weight: .regular, design: .default))
         .padding()
     }
     

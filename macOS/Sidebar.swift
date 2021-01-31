@@ -8,16 +8,23 @@
 import SwiftUI
 
 struct Sidebar: View {
+    @State var selectedTool = 0
+    let tools = ["Brush","Text"]
     var body: some View {
         List {
-            Section(header: Text("Section 1")) {
+            Section(header: Text("Tools")) {
                 NavigationLink(
-                    destination: SettingsScreen(),
+                    destination: BrushScreen(),
                     label: {
-                        Label("Choose Photo", systemImage: "photo.fill" )
+                        Label("Brush", systemImage: "paintbrush.fill" )
+                    })
+                NavigationLink(
+                    destination: TextScreen(),
+                    label: {
+                        Label("Add Text", systemImage: "text.cursor" )
                     })
             }
-            Section(header: Text("Section 2")) {
+            Section(header: Text("Adjustments")) {
                 NavigationLink(
                     destination: BlurStrengthScreen(),
                     label: {
@@ -31,7 +38,7 @@ struct Sidebar: View {
                 NavigationLink(
                     destination: TextAdjustmentsScreen(),
                     label: {
-                        Label("Text Adjustments", systemImage: "text.cursor" )
+                        Label("Text Adjustments", systemImage: "textformat.alt" )
                     })
                 NavigationLink(
                     destination: AddMoreInfoScreen(),
@@ -41,7 +48,6 @@ struct Sidebar: View {
             }
         }
         .listStyle(SidebarListStyle())
-        .frame(minWidth: 150, idealWidth: 180, maxWidth: 200, maxHeight: .infinity)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(action: {
@@ -49,7 +55,6 @@ struct Sidebar: View {
                 }) {
                     Image(systemName: "sidebar.left")
                 }
-                .keyboardShortcut("S", modifiers: .command)
             }
         }
     }

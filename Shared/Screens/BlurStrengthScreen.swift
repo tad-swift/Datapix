@@ -51,6 +51,7 @@ struct BlurStrengthScreen: View {
                     }
                     .padding(.vertical, 8)
                 }
+                .font(.system(size: 17, weight: .regular, design: .default))
             }
             .listStyle(InsetListStyle())
         }

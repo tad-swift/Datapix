@@ -94,7 +94,6 @@ class UserSettings: ObservableObject {
     @Published var blurStyle: String {
         didSet {
             UserDefaults.standard.set(blurStyle, forKey: "Blur Style")
-            print("blur changed")
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: Notification.Name("refresh"), object: nil)
             }

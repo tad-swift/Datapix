@@ -33,6 +33,8 @@ struct AddMoreInfoScreen: View {
                     TextField("Any additional info", text: $userSettings.additionalText)
                 }
             }
+            .font(.system(size: 17, weight: .regular, design: .default))
+            .padding(.vertical, 3)
         }
         .listStyle(InsetListStyle())
     }
