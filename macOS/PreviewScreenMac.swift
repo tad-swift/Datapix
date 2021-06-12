@@ -16,6 +16,7 @@ struct PreviewScreenMac: View {
     @State private var isShowPhotoLibrary = false
     @State private var didSelectImage = false
     @State private var image = NSImage(named: "datapixbg")!
+    @State private var textImage = NSImage()
     @State private var errors = [String]()
     private var stringRep: String { return errors.joined(separator:"\n") }
     @State private var dict: [String: String] = [
@@ -29,29 +30,19 @@ struct PreviewScreenMac: View {
         "Notes":"",
         "Instagram":"",
         "Copyright":""]
+    
     var body: some View {
         VStack {
-            Image(nsImage: image)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 400, height: 400)
-            HStack {
-                Button(action: {
-                    isShowPhotoLibrary.toggle()
-                }) {
-                    Image(systemName: "photo.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .foregroundColor(.accentColor)
-                }
-                .frame(width: 26, height: 26)
-                .padding(.all, 6)
-                .sheet(isPresented: $isShowPhotoLibrary) {
-                }
-                Spacer()
+            ZStack {
+                Image(nsImage: image)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 400, height: 400)
+                Image(nsImage: textImage)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 400, height: 400)
             }
-            .padding(.bottom, 8)
-            .padding(.horizontal, 12)
             Spacer()
         }
         .padding(.top, 10)
@@ -85,32 +76,47 @@ struct PreviewScreenMac: View {
     }
     
     func createImage() {
+        addTextToImage(item: textImage, atPoint: CGPoint.zero)
         tempImg = original
         if UserSettings().lowBlur == true {
-            let newImg = blurredImage(input: darkenImage(input: tempImg), strength: 1, style: UserSettings().blurStyle)
-            image = newImg
-            //addTextToImage(item: newImg, atPoint: .zero)
+            darkenImage(input: tempImg) { item in
+                blurImage(input: item, strength: 1, style: UserSettings().blurStyle) { finalImage in
+                    DispatchQueue.main.async {
+                        image = finalImage
+                    }
+                }
+            }
         } else {
-            let newImg = blurredImage(input: darkenImage(input: tempImg), strength: 3, style: UserSettings().blurStyle)
-            image = newImg
-            //addTextToImage(item: newImg, atPoint: .zero)
+            darkenImage(input: tempImg) { item in
+                blurImage(input: item, strength: 3, style: UserSettings().blurStyle) { finalImage in
+                    DispatchQueue.main.async {
+                        image = finalImage
+                    }
+                }
+            }
         }
     }
     
-    func darkenImage(input: CIImage) -> CIImage {
-        let filter = CIFilter(name: "CIExposureAdjust")
+    func darkenImage(input: CIImage, completion: @escaping (CIImage) -> ()) {
+        DispatchQueue.global().async {
+            let filter = CIFilter(name: "CIExposureAdjust")
+            
+            // The inputEV value on the CIFilter adjusts exposure (negative values darken, positive values brighten)
+            filter?.setValue(input, forKey: "inputImage")
+            filter?.setValue(-2.0, forKey: "inputEV")
+            
+            // Break early if the filter was not a success (.outputImage is optional in Swift)
+            guard let filteredImage = filter?.outputImage else {
+                completion(input)
+                return
+            }
+            
+            let context = CIContext(options: nil)
+            let outputImage = CIImage(cgImage: context.createCGImage(filteredImage, from: filteredImage.extent)!)
+            
+            completion(outputImage)
+        }
         
-        // The inputEV value on the CIFilter adjusts exposure (negative values darken, positive values brighten)
-        filter?.setValue(input, forKey: "inputImage")
-        filter?.setValue(-2.0, forKey: "inputEV")
-        
-        // Break early if the filter was not a success (.outputImage is optional in Swift)
-        guard let filteredImage = filter?.outputImage else { return input }
-        
-        let context = CIContext(options: nil)
-        let outputImage = CIImage(cgImage: context.createCGImage(filteredImage, from: filteredImage.extent)!)
-        
-        return outputImage
     }
     
     func setupDict() -> [String] {
@@ -188,22 +194,25 @@ struct PreviewScreenMac: View {
         return dataList
     }
     
-    func blurredImage(input: CIImage, strength: Int, style: String) -> NSImage {
-        let context = CIContext(options: nil)
-        let clampFilter = CIFilter(name: "CIAffineClamp")
-        clampFilter?.setDefaults()
-        clampFilter?.setValue(input, forKey: kCIInputImageKey)
+    func blurImage(input: CIImage, strength: Int, style: String, completion: @escaping (NSImage) -> ()) {
+        DispatchQueue.global().async {
+            let context = CIContext(options: nil)
+            //let clampFilter = CIFilter(name: "CIAffineClamp")
+            //clampFilter?.setDefaults()
+            //clampFilter?.setValue(input, forKey: kCIInputImageKey)
+            
+            let blurFilter = CIFilter(name: style)
+            blurFilter?.setValue(input, forKey: kCIInputImageKey)
+            blurFilter?.setValue(strength, forKey: kCIInputRadiusKey)
+            
+            let result = blurFilter?.value(forKey: kCIOutputImageKey) as? CIImage
+            let cgImage = context.createCGImage(result!, from: input.extent)
+            
+            let processedImage = NSImage(cgImage: cgImage!, size: input.extent.size)
+            
+            completion(processedImage)
+        }
         
-        let blurFilter = CIFilter(name: style)
-        blurFilter?.setValue(clampFilter?.outputImage, forKey: kCIInputImageKey)
-        blurFilter?.setValue(strength, forKey: kCIInputRadiusKey)
-        
-        let result = blurFilter?.value(forKey: kCIOutputImageKey) as? CIImage
-        let cgImage = context.createCGImage(result!, from: input.extent)
-        
-        let processedImage = NSImage(cgImage: cgImage!, size: NSSize(width: 400, height: 400))
-        
-        return processedImage
     }
     
     func addTextToImage(item: NSImage, atPoint: CGPoint) {

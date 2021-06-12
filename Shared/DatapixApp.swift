@@ -26,5 +26,22 @@ struct DatapixApp: App {
             }
             #endif
         }
+        .commands {
+            CommandGroup(after: .newItem) {
+                Divider()
+                Button(action: {
+                    
+                }) {
+                    Text("Import")
+                }
+                .keyboardShortcut(KeyEquivalent("i"), modifiers: .command)
+                Button(action: {
+                    
+                }) {
+                    Text("Export")
+                }
+                .keyboardShortcut(KeyEquivalent("e"), modifiers: .command)
+            }
+        }
     }
 }

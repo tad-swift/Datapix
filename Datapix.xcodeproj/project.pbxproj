@@ -11,6 +11,11 @@
 		4510BBE325C63E670032C7EF /* PreviewScreenMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510BBE225C63E670032C7EF /* PreviewScreenMac.swift */; };
 		4510BBE725C641770032C7EF /* BrushScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510BBE625C641770032C7EF /* BrushScreen.swift */; };
 		4510BBEB25C6418D0032C7EF /* TextScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510BBEA25C6418D0032C7EF /* TextScreen.swift */; };
+		4539746625CC7C7600990252 /* JLStickerLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539746125CC7C7600990252 /* JLStickerLabelView.swift */; };
+		4539746725CC7C7600990252 /* adjustToFitFontOrWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539746225CC7C7600990252 /* adjustToFitFontOrWidth.swift */; };
+		4539746825CC7C7600990252 /* JLStickerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539746325CC7C7600990252 /* JLStickerImageView.swift */; };
+		4539746925CC7C7600990252 /* CalcuteFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539746425CC7C7600990252 /* CalcuteFunctions.swift */; };
+		4539746A25CC7C7600990252 /* JLAttributedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539746525CC7C7600990252 /* JLAttributedTextView.swift */; };
 		454A2FA825C5B52500DB555B /* DatapixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2F9525C5B52300DB555B /* DatapixApp.swift */; };
 		454A2FA925C5B52500DB555B /* DatapixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2F9525C5B52300DB555B /* DatapixApp.swift */; };
 		454A2FAA25C5B52500DB555B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2F9625C5B52300DB555B /* ContentView.swift */; };
@@ -50,6 +55,11 @@
 		4510BBE225C63E670032C7EF /* PreviewScreenMac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewScreenMac.swift; sourceTree = "<group>"; };
 		4510BBE625C641770032C7EF /* BrushScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushScreen.swift; sourceTree = "<group>"; };
 		4510BBEA25C6418D0032C7EF /* TextScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScreen.swift; sourceTree = "<group>"; };
+		4539746125CC7C7600990252 /* JLStickerLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLStickerLabelView.swift; sourceTree = "<group>"; };
+		4539746225CC7C7600990252 /* adjustToFitFontOrWidth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adjustToFitFontOrWidth.swift; sourceTree = "<group>"; };
+		4539746325CC7C7600990252 /* JLStickerImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLStickerImageView.swift; sourceTree = "<group>"; };
+		4539746425CC7C7600990252 /* CalcuteFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcuteFunctions.swift; sourceTree = "<group>"; };
+		4539746525CC7C7600990252 /* JLAttributedTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLAttributedTextView.swift; sourceTree = "<group>"; };
 		454A2F9525C5B52300DB555B /* DatapixApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatapixApp.swift; sourceTree = "<group>"; };
 		454A2F9625C5B52300DB555B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		454A2F9C25C5B52500DB555B /* Datapix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Datapix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +142,11 @@
 		454A2F9E25C5B52500DB555B /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				4539746225CC7C7600990252 /* adjustToFitFontOrWidth.swift */,
+				4539746425CC7C7600990252 /* CalcuteFunctions.swift */,
+				4539746525CC7C7600990252 /* JLAttributedTextView.swift */,
+				4539746325CC7C7600990252 /* JLStickerImageView.swift */,
+				4539746125CC7C7600990252 /* JLStickerLabelView.swift */,
 				454A2F9F25C5B52500DB555B /* Info.plist */,
 				454A2FC025C5B8E600DB555B /* ShadowImageView.swift */,
 				454A2FBC25C5B8A800DB555B /* HomeScreen.swift */,
@@ -232,7 +247,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					454A2F9B25C5B52500DB555B = {
 						CreatedOnToolsVersion = 12.4;
@@ -295,9 +310,14 @@
 				454A2FA825C5B52500DB555B /* DatapixApp.swift in Sources */,
 				454A2FBD25C5B8A800DB555B /* HomeScreen.swift in Sources */,
 				454A300625C5BA0D00DB555B /* PreviewScreen.swift in Sources */,
+				4539746925CC7C7600990252 /* CalcuteFunctions.swift in Sources */,
+				4539746A25CC7C7600990252 /* JLAttributedTextView.swift in Sources */,
 				454A300225C5BA0D00DB555B /* BlurStrengthScreen.swift in Sources */,
+				4539746725CC7C7600990252 /* adjustToFitFontOrWidth.swift in Sources */,
 				454A300025C5BA0D00DB555B /* SettingsScreen.swift in Sources */,
 				454A2FD425C5B95A00DB555B /* UIImage+Resize.swift in Sources */,
+				4539746825CC7C7600990252 /* JLStickerImageView.swift in Sources */,
+				4539746625CC7C7600990252 /* JLStickerLabelView.swift in Sources */,
 				454A300825C5BA0D00DB555B /* AddMoreInfoScreen.swift in Sources */,
 				454A2FE825C5B96300DB555B /* CardView.swift in Sources */,
 				454A2FEC25C5B96300DB555B /* BottomSheetView.swift in Sources */,
@@ -383,6 +403,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -436,6 +458,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -494,6 +518,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = HJXYY5247H;
@@ -518,6 +543,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = HJXYY5247H;
