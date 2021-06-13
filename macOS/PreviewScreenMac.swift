@@ -9,7 +9,8 @@ import SwiftUI
 
 struct PreviewScreenMac: View {
     let refresh = NotificationCenter.default.publisher(for: NSNotification.Name("refresh"))
-
+    let refreshText = NotificationCenter.default.publisher(for: NSNotification.Name("refreshText"))
+    let context = CIContext(options: nil)
     @State private var tempImg = CIImage()
     @State private var original = CIImage(cgImage: NSImage(named: "datapixbg")!.cgImage(forProposedRect: nil, context: nil, hints: nil)!)
     @State private var showingAlert = false
@@ -76,7 +77,7 @@ struct PreviewScreenMac: View {
     }
     
     func createImage() {
-        addTextToImage(item: textImage, atPoint: CGPoint.zero)
+        //addTextToImage(item: textImage, atPoint: CGPoint.zero)
         tempImg = original
         if UserSettings().lowBlur == true {
             darkenImage(input: tempImg) { item in
@@ -111,7 +112,6 @@ struct PreviewScreenMac: View {
                 return
             }
             
-            let context = CIContext(options: nil)
             let outputImage = CIImage(cgImage: context.createCGImage(filteredImage, from: filteredImage.extent)!)
             
             completion(outputImage)
@@ -196,7 +196,6 @@ struct PreviewScreenMac: View {
     
     func blurImage(input: CIImage, strength: Int, style: String, completion: @escaping (NSImage) -> ()) {
         DispatchQueue.global().async {
-            let context = CIContext(options: nil)
             //let clampFilter = CIFilter(name: "CIAffineClamp")
             //clampFilter?.setDefaults()
             //clampFilter?.setValue(input, forKey: kCIInputImageKey)

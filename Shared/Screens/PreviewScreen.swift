@@ -223,7 +223,7 @@ struct PreviewScreen: View {
         return dataList
     }
     
-    func blurredImage(input: CIImage, strength: Int, style: String, completion: @escaping (UIImage) -> ()) {
+    func blurImage(input: CIImage, strength: Int, style: String, completion: @escaping (UIImage) -> ()) {
         DispatchQueue.global().async {
             let context = CIContext(options: nil)
             let clampFilter = CIFilter(name: "CIAffineClamp")
