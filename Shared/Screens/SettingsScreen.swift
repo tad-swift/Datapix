@@ -12,7 +12,7 @@ struct SettingsScreen: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Image Adjustments")) {
+                Section() {
                     NavigationLink(destination: BlurStrengthScreen()) {
                         Text("Blur strength")
                     }
@@ -28,7 +28,9 @@ struct SettingsScreen: View {
                 }
             }
             .listStyle(InsetListStyle())
+            .navigationBarTitle("Image Adjustments", displayMode: .inline)
         }
         .navigationViewStyle(DoubleColumnNavigationViewStyle())
+        
     }
 }

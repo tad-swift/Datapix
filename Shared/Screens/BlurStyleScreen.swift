@@ -72,6 +72,7 @@ struct BlurStyleScreen: View {
         }
         .font(.system(size: 17, weight: .regular, design: .default))
         .padding()
+        .navigationBarTitle("Blur Style", displayMode: .inline)
     }
     
 }

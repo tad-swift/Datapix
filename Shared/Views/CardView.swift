@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CardView: View {
     var body: some View {
-        
         VStack {
             Spacer()
             Text("Let's get started!")
@@ -31,12 +30,12 @@ struct CardView: View {
                     .padding(.vertical, 10)
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.accentColor, lineWidth: 2))
             }
-            
             Spacer()
         }
         .padding(.horizontal)
         .background(LinearGradient(gradient: Gradient(colors: [Color("AccentColor"), Color("!AccentColor")]), startPoint: .top, endPoint: .bottom))
         .cornerRadius(20)
+        .frame(width: UIScreen.main.bounds.width - 4, height: 320, alignment: .center)
     }
     
 }

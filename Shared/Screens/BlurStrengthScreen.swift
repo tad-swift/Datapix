@@ -12,7 +12,7 @@ struct BlurStrengthScreen: View {
     var body: some View {
         VStack {
             List {
-                Section(header: Text("Select a blur strength")) {
+                Section() {
                     HStack {
                         VStack {
                             Image("datapixbg")
@@ -54,6 +54,7 @@ struct BlurStrengthScreen: View {
                 .font(.system(size: 17, weight: .regular, design: .default))
             }
             .listStyle(InsetListStyle())
+            .navigationBarTitle("Select a blur strength", displayMode: .inline)
         }
     }
     

@@ -23,6 +23,7 @@ struct DatapixApp: App {
             #else
             NavigationView {
                 HomeScreen()
+                    .navigationBarTitle("Datapix")
             }
             #endif
         }

@@ -11,6 +11,7 @@
 		4510BBE325C63E670032C7EF /* PreviewScreenMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510BBE225C63E670032C7EF /* PreviewScreenMac.swift */; };
 		4510BBE725C641770032C7EF /* BrushScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510BBE625C641770032C7EF /* BrushScreen.swift */; };
 		4510BBEB25C6418D0032C7EF /* TextScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510BBEA25C6418D0032C7EF /* TextScreen.swift */; };
+		45226AF226A3500B007B8E5B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45226AF126A3500B007B8E5B /* Extensions.swift */; };
 		4539746625CC7C7600990252 /* JLStickerLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539746125CC7C7600990252 /* JLStickerLabelView.swift */; };
 		4539746725CC7C7600990252 /* adjustToFitFontOrWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539746225CC7C7600990252 /* adjustToFitFontOrWidth.swift */; };
 		4539746825CC7C7600990252 /* JLStickerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539746325CC7C7600990252 /* JLStickerImageView.swift */; };
@@ -55,6 +56,7 @@
 		4510BBE225C63E670032C7EF /* PreviewScreenMac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewScreenMac.swift; sourceTree = "<group>"; };
 		4510BBE625C641770032C7EF /* BrushScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushScreen.swift; sourceTree = "<group>"; };
 		4510BBEA25C6418D0032C7EF /* TextScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScreen.swift; sourceTree = "<group>"; };
+		45226AF126A3500B007B8E5B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4539746125CC7C7600990252 /* JLStickerLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLStickerLabelView.swift; sourceTree = "<group>"; };
 		4539746225CC7C7600990252 /* adjustToFitFontOrWidth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adjustToFitFontOrWidth.swift; sourceTree = "<group>"; };
 		4539746325CC7C7600990252 /* JLStickerImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLStickerImageView.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				454A2F9F25C5B52500DB555B /* Info.plist */,
 				454A2FC025C5B8E600DB555B /* ShadowImageView.swift */,
 				454A2FBC25C5B8A800DB555B /* HomeScreen.swift */,
+				45226AF126A3500B007B8E5B /* Extensions.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				4539746625CC7C7600990252 /* JLStickerLabelView.swift in Sources */,
 				454A300825C5BA0D00DB555B /* AddMoreInfoScreen.swift in Sources */,
 				454A2FE825C5B96300DB555B /* CardView.swift in Sources */,
+				45226AF226A3500B007B8E5B /* Extensions.swift in Sources */,
 				454A2FEC25C5B96300DB555B /* BottomSheetView.swift in Sources */,
 				454A300425C5BA0D00DB555B /* TextAdjustmentsScreen.swift in Sources */,
 				454A2FD825C5B95A00DB555B /* ImageSaver.swift in Sources */,

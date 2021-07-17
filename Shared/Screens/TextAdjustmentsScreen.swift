@@ -11,7 +11,7 @@ struct TextAdjustmentsScreen: View {
     @ObservedObject var userSettings = UserSettings()
     var body: some View {
         List {
-            Section(header: Text("Visible data")) {
+            Section() {
                 Toggle("Camera model", isOn: $userSettings.cameraModelChecked)
                 
                 Toggle("Camera software", isOn: $userSettings.cameraSoftwareChecked)
@@ -31,5 +31,6 @@ struct TextAdjustmentsScreen: View {
             
         }
         .listStyle(InsetListStyle())
+        .navigationBarTitle("Visible data", displayMode: .inline)
     }
 }

@@ -10,6 +10,7 @@ import PhotosUI
 
 struct PreviewScreen: View {
     let refresh = NotificationCenter.default.publisher(for: NSNotification.Name("refresh"))
+    let refreshText = NotificationCenter.default.publisher(for: NSNotification.Name("refreshText"))
     @State private var bottomSheetShown = false
     @State private var tempImg = CIImage()
     @State private var original = CIImage(image: UIImage(named: "datapixbg")!)!
@@ -18,7 +19,7 @@ struct PreviewScreen: View {
     @State private var isShowPhotoLibrary = false
     @State private var didSelectImage = false
     @State private var image = UIImage(named: "datapixbg")!
-    @State private var textImage = UIImage()
+    @State private var textImage: UIImage = imageWithSize(size: CGSize(width: 400, height: 400))
     @State private var errors = [String]()
     private var stringRep: String { return errors.joined(separator:"\n") }
     @State private var dict: [String: String] = [
@@ -36,12 +37,16 @@ struct PreviewScreen: View {
     var body: some View {
         VStack {
             ZStack {
-                MyShadowImageView.init(image: $image)
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .cornerRadius(10)
                     .frame(width: 400, height: 400)
                 Image(uiImage: textImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 400, height: 400)
             }
-            
             
             HStack {
                 Button(action: {
@@ -59,7 +64,8 @@ struct PreviewScreen: View {
                 }
                 Spacer()
                 Button(action: {
-                    ImageSaver().writeToPhotoAlbum(image: image)
+                    let snap = mergeImage(bottom: image, top: textImage)
+                    ImageSaver().writeToPhotoAlbum(image: snap)
                     showingAlert = true
                 }) {
                     Image(systemName: "square.and.arrow.down")
@@ -72,13 +78,12 @@ struct PreviewScreen: View {
                 .alert(isPresented: $showingAlert) {
                             Alert(title: Text("Photo saved to your library"), dismissButton: .default(Text("Got it!")))
                         }
-                
             }
-            .padding(.bottom, 8)
+            .padding(.bottom, 16)
             .padding(.horizontal, 12)
             Spacer()
             GeometryReader { geometry in
-                BottomSheetView(isOpen: $bottomSheetShown, maxHeight: geometry.size.height * 1.7) {
+                BottomSheetView(isOpen: $bottomSheetShown, maxHeight: geometry.size.height * 2.2) {
                     SettingsScreen()
                 }
             }.ignoresSafeArea()
@@ -87,6 +92,10 @@ struct PreviewScreen: View {
         .navigationBarTitleDisplayMode(.inline)
         .onReceive(refresh, perform: { _ in
             createImage()
+        })
+        .onReceive(refreshText, perform: { _ in
+            textImage = imageWithSize(size: original.extent.size)
+            addTextToImage(item: textImage, atPoint: CGPoint.zero)
         })
     }
     
@@ -105,13 +114,14 @@ struct PreviewScreen: View {
     }
     
     func createImage() {
-        addTextToImage(item: textImage, atPoint: CGPoint.zero)
+        textImage = imageWithSize(size: original.extent.size)
         tempImg = original
         if UserSettings().lowBlur == true {
             darkenImage(input: tempImg) { item in
                 blurImage(input: item, strength: 1, style: UserSettings().blurStyle) { finalImage in
                     DispatchQueue.main.async {
                         image = finalImage
+                        addTextToImage(item: textImage, atPoint: CGPoint.zero)
                     }
                 }
             }
@@ -120,10 +130,12 @@ struct PreviewScreen: View {
                 blurImage(input: item, strength: 3, style: UserSettings().blurStyle) { finalImage in
                     DispatchQueue.main.async {
                         image = finalImage
+                        addTextToImage(item: textImage, atPoint: CGPoint.zero)
                     }
                 }
             }
         }
+        
     }
     
     func darkenImage(input: CIImage, completion: @escaping (CIImage) -> ()) {
@@ -145,7 +157,6 @@ struct PreviewScreen: View {
             
             completion(outputImage)
         }
-        
     }
     
     func setupDict() -> [String] {
@@ -159,7 +170,7 @@ struct PreviewScreen: View {
         var insta: String
         var notes: String
         var copyright: String
-        var dataList = [String]()
+        var dataList: [String] = []
         
         if UserSettings().cameraModelChecked {
             if dict["Camera Model"] != nil {
@@ -268,8 +279,29 @@ struct PreviewScreen: View {
         let dataString = setupDict().joined(separator: "\n") as NSString
         dataString.draw(in: textRect, withAttributes: textFontAttributes)
         // Get the image from the graphics context
-        image = UIGraphicsGetImageFromCurrentImageContext()!
+        textImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
     }
     
+    func mergeImage(bottom: UIImage, top: UIImage) -> UIImage {
+        let size = CGSize(width: bottom.size.width, height: bottom.size.height)
+        UIGraphicsBeginImageContext(size)
+        let areaSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        bottom.draw(in: areaSize)
+        top.draw(in: areaSize, blendMode: .normal, alpha: 1)
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+
+}
+
+func imageWithSize(size: CGSize, filledWithColor color: UIColor = UIColor.clear, scale: CGFloat = 0.0, opaque: Bool = false) -> UIImage {
+    let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+    UIGraphicsBeginImageContextWithOptions(size, opaque, scale)
+    color.set()
+    UIRectFill(rect)
+    let sizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+    UIGraphicsEndImageContext()
+    return sizedImage
 }

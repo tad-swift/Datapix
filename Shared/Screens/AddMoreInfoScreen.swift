@@ -12,7 +12,7 @@ struct AddMoreInfoScreen: View {
     @ObservedObject var userSettings = UserSettings()
     var body: some View {
         List {
-            Section(header: Text("Edit text")) {
+            Section() {
                 HStack {
                     Image(systemName: "c.circle")
                         .resizable()
@@ -37,5 +37,6 @@ struct AddMoreInfoScreen: View {
             .padding(.vertical, 3)
         }
         .listStyle(InsetListStyle())
+        .navigationBarTitle("Edit text", displayMode: .inline)
     }
 }
