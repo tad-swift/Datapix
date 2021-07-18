@@ -30,7 +30,7 @@ struct TextAdjustmentsScreen: View {
             .toggleStyle(DefaultToggleStyle())
             
         }
-        .listStyle(InsetListStyle())
+        .listStyle(InsetGroupedListStyle())
         .navigationBarTitle("Visible data", displayMode: .inline)
     }
 }

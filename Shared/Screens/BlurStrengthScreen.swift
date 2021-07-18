@@ -53,7 +53,7 @@ struct BlurStrengthScreen: View {
                 }
                 .font(.system(size: 17, weight: .regular, design: .default))
             }
-            .listStyle(InsetListStyle())
+            .listStyle(InsetGroupedListStyle())
             .navigationBarTitle("Select a blur strength", displayMode: .inline)
         }
     }
