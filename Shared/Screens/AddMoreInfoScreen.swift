@@ -36,7 +36,7 @@ struct AddMoreInfoScreen: View {
             .font(.system(size: 17, weight: .regular, design: .default))
             .padding(.vertical, 3)
         }
-        .listStyle(InsetListStyle())
+        .listStyle(InsetGroupedListStyle())
         .navigationBarTitle("Edit text", displayMode: .inline)
     }
 }

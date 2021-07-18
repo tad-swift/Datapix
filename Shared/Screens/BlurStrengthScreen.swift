@@ -15,7 +15,7 @@ struct BlurStrengthScreen: View {
                 Section() {
                     HStack {
                         VStack {
-                            Image("datapixbg")
+                            Image("instagram")
                                 .resizable()
                                 .frame(height: 100)
                                 .blur(radius: 1.8)
@@ -32,7 +32,7 @@ struct BlurStrengthScreen: View {
                             UserSettings().lowBlur = true
                         })
                         VStack {
-                            Image("datapixbg")
+                            Image("instagram")
                                 .resizable()
                                 .frame(height: 100)
                                 .blur(radius: 4)

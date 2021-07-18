@@ -27,10 +27,10 @@ struct SettingsScreen: View {
                     }
                 }
             }
-            .listStyle(InsetListStyle())
+            .listStyle(InsetGroupedListStyle())
             .navigationBarTitle("Image Adjustments", displayMode: .inline)
+            .background(Color.clear)
         }
         .navigationViewStyle(DoubleColumnNavigationViewStyle())
-        
     }
 }
