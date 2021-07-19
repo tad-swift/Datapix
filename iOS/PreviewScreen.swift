@@ -47,7 +47,6 @@ struct PreviewScreen: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 400, height: 400)
             }
-            
             HStack {
                 Button(action: {
                     isShowPhotoLibrary.toggle()
@@ -79,7 +78,7 @@ struct PreviewScreen: View {
                             Alert(title: Text("Photo saved to your library"), dismissButton: .default(Text("Got it!")))
                         }
             }
-            .padding(.bottom, 24)
+            .padding(.bottom, 16)
             .padding(.horizontal, 12)
             Spacer()
             GeometryReader { geometry in
@@ -122,39 +121,15 @@ struct PreviewScreen: View {
     
     func createImage() {
         DispatchQueue.global(qos: .userInitiated).async {
-            textImage = imageWithSize(size: original.extent.size)
             tempImg = original
-            if UserSettings().lowBlur == true {
-                darkenImage(input: tempImg) { item in
-                    blurImage(input: item, strength: 1, style: UserSettings().blurStyle) { finalImage in
+            darkenImage(input: tempImg) { item in
+                blurImage(input: item, style: UserSettings().blurStyle) { finalImage in
+                    DispatchQueue.main.async {
                         image = finalImage
-                        addTextToImage(item: textImage, atPoint: CGPoint.zero)
-                    }
-                }
-            } else {
-                darkenImage(input: tempImg) { item in
-                    blurImage(input: item, strength: 3, style: UserSettings().blurStyle) { finalImage in
-                        image = finalImage
-                        addTextToImage(item: textImage, atPoint: CGPoint.zero)
                     }
                 }
             }
         }
-    }
-    
-    func darkenImage(input: CIImage, completion: @escaping (CIImage) -> ()) {
-        let filter = CIFilter(name: "CIExposureAdjust")
-        // The inputEV value on the CIFilter adjusts exposure (negative values darken, positive values brighten)
-        filter?.setValue(input, forKey: "inputImage")
-        filter?.setValue(-2.0, forKey: "inputEV")
-        // Break early if the filter was not a success (.outputImage is optional in Swift)
-        guard let filteredImage = filter?.outputImage else {
-            completion(input)
-            return
-        }
-        let context = CIContext(options: nil)
-        let outputImage = CIImage(cgImage: context.createCGImage(filteredImage, from: filteredImage.extent)!)
-        completion(outputImage)
     }
     
     func setupDict() -> [String] {
@@ -197,21 +172,37 @@ struct PreviewScreen: View {
         }
         
         dataList.append(UserSettings().instagramText)
-        dataList.append("© \(UserSettings().copyrightText)")
+        if !UserSettings().copyrightText.isEmpty {
+            dataList.append("© \(UserSettings().copyrightText)")
+        }
         dataList.append(UserSettings().additionalText)
         
-        dataList = dataList.filter { (!$0.isEmpty) }
-        return dataList
+        return dataList.filter { (!$0.isEmpty) }
     }
     
-    func blurImage(input: CIImage, strength: Int, style: String, completion: @escaping (UIImage) -> ()) {
+    func darkenImage(input: CIImage, completion: @escaping (CIImage) -> ()) {
+        let filter = CIFilter(name: "CIExposureAdjust")
+        // The inputEV value on the CIFilter adjusts exposure (negative values darken, positive values brighten)
+        filter?.setValue(input, forKey: "inputImage")
+        filter?.setValue(-2.0, forKey: "inputEV")
+        // Break early if the filter was not a success (.outputImage is optional in Swift)
+        guard let filteredImage = filter?.outputImage else {
+            completion(input)
+            return
+        }
+        let context = CIContext(options: nil)
+        let outputImage = CIImage(cgImage: context.createCGImage(filteredImage, from: filteredImage.extent)!)
+        completion(outputImage)
+    }
+    
+    func blurImage(input: CIImage, style: String, completion: @escaping (UIImage) -> ()) {
         let context = CIContext(options: nil)
         let clampFilter = CIFilter(name: "CIAffineClamp")
         clampFilter?.setDefaults()
         clampFilter?.setValue(input, forKey: kCIInputImageKey)
         let blurFilter = CIFilter(name: style)
         blurFilter?.setValue(clampFilter?.outputImage, forKey: kCIInputImageKey)
-        blurFilter?.setValue(strength, forKey: kCIInputRadiusKey)
+        blurFilter?.setValue(UserSettings().blurStrength, forKey: kCIInputRadiusKey)
         let result = blurFilter?.value(forKey: kCIOutputImageKey) as? CIImage
         let cgImage = context.createCGImage(result!, from: input.extent )
         let processedImage = UIImage(cgImage: cgImage!, scale: UIImage(ciImage: input).scale, orientation: .up)

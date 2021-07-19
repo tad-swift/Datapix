@@ -10,7 +10,7 @@ import UIKit
 enum Constants {
     static let indicatorHeight: CGFloat = 5
     static let indicatorWidth: CGFloat = 60
-    static let minHeightRatio: CGFloat = 0.5
+    static let minHeightRatio: CGFloat = 0.4
     static let radius: CGFloat = 16
     static let snapRatio: CGFloat = 0.1
 }

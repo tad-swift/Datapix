@@ -126,6 +126,7 @@ struct ImagePicker: UIViewControllerRepresentable {
                 }
             }
             NotificationCenter.default.post(name: Notification.Name("refresh"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name("refreshText"), object: nil)
             parent.presentationMode.wrappedValue.dismiss()
         }
         

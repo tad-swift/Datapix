@@ -8,54 +8,33 @@
 import SwiftUI
 
 struct BlurStrengthScreen: View {
-    @State private var lowBlur = UserSettings().lowBlur
+    @State private var currentValue: Float = UserSettings().blurStrength
     var body: some View {
         VStack {
             List {
                 Section() {
                     HStack {
-                        VStack {
-                            Image("instagram")
-                                .resizable()
-                                .frame(height: 100)
-                                .blur(radius: 1.8)
-                                .cornerRadius(16)
-                            Text("Subtle")
-                                .font(.system(size: 18, weight: .regular, design: .rounded))
-                                .padding(.top, 8)
-                            Image(systemName: lowBlur ? "checkmark.circle.fill" : "circle")
-                                .foregroundColor(.accentColor)
-                                .padding(.vertical, 8)
-                        }
-                        .onTapGesture(count: 1, perform: {
-                            lowBlur = true
-                            UserSettings().lowBlur = true
+                        Text("0")
+                            .padding(.trailing)
+                        Slider(value: $currentValue, in: 0...20, step: 2, onEditingChanged: { _ in
+                            UserSettings().blurStrength = currentValue
                         })
-                        VStack {
-                            Image("instagram")
-                                .resizable()
-                                .frame(height: 100)
-                                .blur(radius: 4)
-                                .cornerRadius(16)
-                            Text("Strong")
-                                .font(.system(size: 18, weight: .regular, design: .rounded))
-                                .padding(.top, 8)
-                            Image(systemName: !lowBlur ? "checkmark.circle.fill" : "circle")
-                                .foregroundColor(.accentColor)
-                                .padding(.vertical, 8)
-                        }
-                        .onTapGesture(count: 1, perform: {
-                            lowBlur = false
-                            UserSettings().lowBlur = false
-                        })
+                        Text("20")
+                            .padding(.leading)
                     }
-                    .padding(.vertical, 8)
+                    .padding(.vertical)
                 }
-                .font(.system(size: 17, weight: .regular, design: .default))
+                .font(.system(size: 17, weight: .medium, design: .rounded))
             }
             .listStyle(InsetGroupedListStyle())
             .navigationBarTitle("Select a blur strength", displayMode: .inline)
         }
+    }
+}
+
+struct BlurStrengthScreen_Preview: PreviewProvider {
+    static var previews: some View {
+        BlurStrengthScreen()
     }
     
 }

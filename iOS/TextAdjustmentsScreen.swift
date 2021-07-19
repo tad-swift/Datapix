@@ -13,21 +13,15 @@ struct TextAdjustmentsScreen: View {
         List {
             Section() {
                 Toggle("Camera model", isOn: $userSettings.cameraModelChecked)
-                
                 Toggle("Camera software", isOn: $userSettings.cameraSoftwareChecked)
-                
                 Toggle("Aperture", isOn: $userSettings.apertureChecked)
-                
                 Toggle("Focal legth", isOn: $userSettings.focalChecked)
-                
                 Toggle("ISO", isOn: $userSettings.isoChecked)
-                
                 Toggle("Lens model", isOn: $userSettings.lensModelChecked)
-                
                 Toggle("Shutter speed", isOn: $userSettings.shutterSpeedChecked)
             }
             .font(.system(size: 17, weight: .regular, design: .default))
-            .toggleStyle(DefaultToggleStyle())
+            .toggleStyle(SwitchToggleStyle(tint: .accentColor))
             
         }
         .listStyle(InsetGroupedListStyle())

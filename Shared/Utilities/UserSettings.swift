@@ -16,6 +16,13 @@ class UserSettings: ObservableObject {
         }
     }
     
+    @Published var blurStrength: Float {
+        didSet {
+            UserDefaults.standard.set(blurStrength, forKey: "Blur Strength")
+            NotificationCenter.default.post(name: Notification.Name("refresh"), object: nil)
+        }
+    }
+    
     @Published var cameraModelChecked: Bool {
         didSet {
             UserDefaults.standard.set(cameraModelChecked, forKey: "Camera Model")
@@ -93,15 +100,9 @@ class UserSettings: ObservableObject {
         }
     }
     
-    @Published var lowBlur: Bool {
-        didSet {
-            UserDefaults.standard.set(lowBlur, forKey: "Low Blur")
-            NotificationCenter.default.post(name: Notification.Name("refresh"), object: nil)
-        }
-    }
-    
     init() {
         firstUse = UserDefaults.standard.object(forKey: "First Use") as? Bool ?? true
+        blurStrength = UserDefaults.standard.object(forKey: "Blur Strength") as? Float ?? 3
         cameraModelChecked = UserDefaults.standard.object(forKey: "Camera Model") as? Bool ?? true
         cameraSoftwareChecked = UserDefaults.standard.object(forKey: "Camera Software") as? Bool ?? true
         apertureChecked = UserDefaults.standard.object(forKey: "Aperture") as? Bool ?? true
@@ -113,6 +114,5 @@ class UserSettings: ObservableObject {
         instagramText = UserDefaults.standard.object(forKey: "Instagram Text") as? String ?? ""
         additionalText = UserDefaults.standard.object(forKey: "Notes") as? String ?? ""
         blurStyle = UserDefaults.standard.object(forKey: "Blur Style") as? String ?? "CIGaussianBlur"
-        lowBlur = UserDefaults.standard.object(forKey: "Low Blur") as? Bool ?? true
     }
 }
