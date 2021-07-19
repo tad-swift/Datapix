@@ -64,7 +64,7 @@ struct PreviewScreen: View {
                 Spacer()
                 Button(action: {
                     let snap = mergeImage(bottom: image, top: textImage)
-                    ImageSaver().writeToPhotoAlbum(image: snap)
+                    UIImageWriteToSavedPhotosAlbum(snap, self, nil, nil)
                     showingAlert = true
                 }) {
                     Image(systemName: "square.and.arrow.down")

@@ -33,6 +33,8 @@
 		454A300C25C5BA0D00DB555B /* BlurStyleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FFF25C5BA0D00DB555B /* BlurStyleScreen.swift */; };
 		454A301F25C5BCFB00DB555B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454A301E25C5BCFB00DB555B /* Assets.xcassets */; };
 		454A302025C5BCFB00DB555B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454A301E25C5BCFB00DB555B /* Assets.xcassets */; };
+		45776DFF26A61F6100BA284B /* BlurStyleCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45776DFE26A61F6100BA284B /* BlurStyleCheckBox.swift */; };
+		45776E0026A61F6100BA284B /* BlurStyleCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45776DFE26A61F6100BA284B /* BlurStyleCheckBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,7 @@
 		454A2FFD25C5BA0D00DB555B /* AddMoreInfoScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMoreInfoScreen.swift; sourceTree = "<group>"; };
 		454A2FFF25C5BA0D00DB555B /* BlurStyleScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurStyleScreen.swift; sourceTree = "<group>"; };
 		454A301E25C5BCFB00DB555B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		45776DFE26A61F6100BA284B /* BlurStyleCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurStyleCheckBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,7 @@
 		454A2F9425C5B52300DB555B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				45776DFE26A61F6100BA284B /* BlurStyleCheckBox.swift */,
 				454A2FCC25C5B95A00DB555B /* Utilities */,
 				454A2F9525C5B52300DB555B /* DatapixApp.swift */,
 				454A301E25C5BCFB00DB555B /* Assets.xcassets */,
@@ -260,6 +264,7 @@
 				453C4D1626A5205F008EDED9 /* TextAdjustmentsScreen.swift in Sources */,
 				454A2FDA25C5B95A00DB555B /* UserSettings.swift in Sources */,
 				454A300C25C5BA0D00DB555B /* BlurStyleScreen.swift in Sources */,
+				45776DFF26A61F6100BA284B /* BlurStyleCheckBox.swift in Sources */,
 				454A2FA825C5B52500DB555B /* DatapixApp.swift in Sources */,
 				454A2FBD25C5B8A800DB555B /* HomeScreen.swift in Sources */,
 				454A300625C5BA0D00DB555B /* PreviewScreen.swift in Sources */,
@@ -286,6 +291,7 @@
 				4510BBDF25C635D50032C7EF /* Editbar.swift in Sources */,
 				4510BBE725C641770032C7EF /* BrushScreen.swift in Sources */,
 				453C4D1226A51FE0008EDED9 /* BlurStyleScreen.swift in Sources */,
+				45776E0026A61F6100BA284B /* BlurStyleCheckBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
