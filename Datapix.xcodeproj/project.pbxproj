@@ -20,7 +20,6 @@
 		454A2FA925C5B52500DB555B /* DatapixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2F9525C5B52300DB555B /* DatapixApp.swift */; };
 		454A2FB925C5B76F00DB555B /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FB825C5B76F00DB555B /* Sidebar.swift */; };
 		454A2FBD25C5B8A800DB555B /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FBC25C5B8A800DB555B /* HomeScreen.swift */; };
-		454A2FC125C5B8E600DB555B /* ShadowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FC025C5B8E600DB555B /* ShadowImageView.swift */; };
 		454A2FC825C5B93B00DB555B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FC725C5B93B00DB555B /* Constants.swift */; };
 		454A2FD425C5B95A00DB555B /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FCE25C5B95A00DB555B /* UIImage+Resize.swift */; };
 		454A2FD625C5B95A00DB555B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FCF25C5B95A00DB555B /* ImagePicker.swift */; };
@@ -59,7 +58,6 @@
 		454A2FA725C5B52500DB555B /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		454A2FB825C5B76F00DB555B /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		454A2FBC25C5B8A800DB555B /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		454A2FC025C5B8E600DB555B /* ShadowImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowImageView.swift; sourceTree = "<group>"; };
 		454A2FC725C5B93B00DB555B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		454A2FCE25C5B95A00DB555B /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		454A2FCF25C5B95A00DB555B /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 				454A2FFA25C5BA0D00DB555B /* BlurStrengthScreen.swift */,
 				454A2FF925C5BA0D00DB555B /* SettingsScreen.swift */,
 				454A2FFC25C5BA0D00DB555B /* PreviewScreen.swift */,
-				454A2FC025C5B8E600DB555B /* ShadowImageView.swift */,
 				454A2FBC25C5B8A800DB555B /* HomeScreen.swift */,
 			);
 			path = iOS;
@@ -280,7 +277,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				454A2FC825C5B93B00DB555B /* Constants.swift in Sources */,
-				454A2FC125C5B8E600DB555B /* ShadowImageView.swift in Sources */,
 				454A2FE625C5B96300DB555B /* MyShadowImageView.swift in Sources */,
 				454A2FD625C5B95A00DB555B /* ImagePicker.swift in Sources */,
 				453C4D1626A5205F008EDED9 /* TextAdjustmentsScreen.swift in Sources */,

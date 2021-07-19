@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BlurStrengthScreen: View {
-    @State private var currentValue: Float = UserSettings().blurStrength
+    @ObservedObject var userSettings = UserSettings()
     var body: some View {
         VStack {
             List {
@@ -16,13 +16,11 @@ struct BlurStrengthScreen: View {
                     HStack {
                         Text("0")
                             .padding(.trailing)
-                        Slider(value: $currentValue, in: 0...20, step: 2, onEditingChanged: { _ in
-                            UserSettings().blurStrength = currentValue
-                        })
+                        Slider(value: $userSettings.blurStrength, in: 0...20, step: 2)
                         Text("20")
                             .padding(.leading)
                     }
-                    .padding(.vertical)
+                    .padding(.vertical, 4)
                 }
                 .font(.system(size: 17, weight: .medium, design: .rounded))
             }
@@ -30,11 +28,4 @@ struct BlurStrengthScreen: View {
             .navigationBarTitle("Select a blur strength", displayMode: .inline)
         }
     }
-}
-
-struct BlurStrengthScreen_Preview: PreviewProvider {
-    static var previews: some View {
-        BlurStrengthScreen()
-    }
-    
 }

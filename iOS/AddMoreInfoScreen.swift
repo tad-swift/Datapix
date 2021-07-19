@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AddMoreInfoScreen: View {
-    @State private var sampleText: String = ""
     @ObservedObject var userSettings = UserSettings()
     var body: some View {
         List {

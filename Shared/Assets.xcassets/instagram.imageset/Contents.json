@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "compression-type" : "lossy",
       "filename" : "instagram.png",
       "idiom" : "universal"
     }
