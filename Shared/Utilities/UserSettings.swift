@@ -10,6 +10,12 @@ import Combine
 
 class UserSettings: ObservableObject {
     
+    @Published var firstUse: Bool {
+        didSet {
+            UserDefaults.standard.set(firstUse, forKey: "First Use")
+        }
+    }
+    
     @Published var cameraModelChecked: Bool {
         didSet {
             UserDefaults.standard.set(cameraModelChecked, forKey: "Camera Model")
@@ -95,6 +101,7 @@ class UserSettings: ObservableObject {
     }
     
     init() {
+        firstUse = UserDefaults.standard.object(forKey: "First Use") as? Bool ?? true
         cameraModelChecked = UserDefaults.standard.object(forKey: "Camera Model") as? Bool ?? true
         cameraSoftwareChecked = UserDefaults.standard.object(forKey: "Camera Software") as? Bool ?? true
         apertureChecked = UserDefaults.standard.object(forKey: "Aperture") as? Bool ?? true

@@ -15,7 +15,6 @@ public class ShadowImageView: UIView {
     private var imageView = UIImageView()
     private var blurredImageView = UIImageView()
 
-
     /// Gaussian Blur radius, larger will make the back ground shadow lighter (warning: do not set it too large, 2 or 3 for most cases)
     @IBInspectable
     public var blurRadius: CGFloat = 3 {

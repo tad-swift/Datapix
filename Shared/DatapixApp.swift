@@ -17,7 +17,7 @@ struct DatapixApp: App {
                     .frame(minWidth: 200, idealWidth: 200, maxWidth: 250, maxHeight: .infinity)
                 Editbar()
                     .frame(minWidth: 250, idealWidth: 250, maxWidth: 300, maxHeight: .infinity)
-                ContentView()
+                PreviewScreen()
                     .frame(minWidth: 500, idealWidth: 500, maxWidth: .infinity, maxHeight: .infinity)
             }
             #else
