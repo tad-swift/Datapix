@@ -21,15 +21,10 @@
 		454A2FB925C5B76F00DB555B /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FB825C5B76F00DB555B /* Sidebar.swift */; };
 		454A2FBD25C5B8A800DB555B /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FBC25C5B8A800DB555B /* HomeScreen.swift */; };
 		454A2FC825C5B93B00DB555B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FC725C5B93B00DB555B /* Constants.swift */; };
-		454A2FD425C5B95A00DB555B /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FCE25C5B95A00DB555B /* UIImage+Resize.swift */; };
 		454A2FD625C5B95A00DB555B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FCF25C5B95A00DB555B /* ImagePicker.swift */; };
-		454A2FD825C5B95A00DB555B /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FD025C5B95A00DB555B /* ImageSaver.swift */; };
 		454A2FDA25C5B95A00DB555B /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FD125C5B95A00DB555B /* UserSettings.swift */; };
 		454A2FDB25C5B95A00DB555B /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FD125C5B95A00DB555B /* UserSettings.swift */; };
-		454A2FE625C5B96300DB555B /* MyShadowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FE025C5B96300DB555B /* MyShadowImageView.swift */; };
 		454A2FE825C5B96300DB555B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FE125C5B96300DB555B /* CardView.swift */; };
-		454A2FEA25C5B96300DB555B /* BlurStyleCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FE225C5B96300DB555B /* BlurStyleCheckBox.swift */; };
-		454A2FEB25C5B96300DB555B /* BlurStyleCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FE225C5B96300DB555B /* BlurStyleCheckBox.swift */; };
 		454A2FEC25C5B96300DB555B /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FE325C5B96300DB555B /* BottomSheetView.swift */; };
 		454A300025C5BA0D00DB555B /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FF925C5BA0D00DB555B /* SettingsScreen.swift */; };
 		454A300225C5BA0D00DB555B /* BlurStrengthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A2FFA25C5BA0D00DB555B /* BlurStrengthScreen.swift */; };
@@ -59,13 +54,9 @@
 		454A2FB825C5B76F00DB555B /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		454A2FBC25C5B8A800DB555B /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		454A2FC725C5B93B00DB555B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		454A2FCE25C5B95A00DB555B /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		454A2FCF25C5B95A00DB555B /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		454A2FD025C5B95A00DB555B /* ImageSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		454A2FD125C5B95A00DB555B /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
-		454A2FE025C5B96300DB555B /* MyShadowImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyShadowImageView.swift; sourceTree = "<group>"; };
 		454A2FE125C5B96300DB555B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		454A2FE225C5B96300DB555B /* BlurStyleCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurStyleCheckBox.swift; sourceTree = "<group>"; };
 		454A2FE325C5B96300DB555B /* BottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		454A2FF925C5BA0D00DB555B /* SettingsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		454A2FFA25C5BA0D00DB555B /* BlurStrengthScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurStrengthScreen.swift; sourceTree = "<group>"; };
@@ -106,7 +97,6 @@
 		454A2F9425C5B52300DB555B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				454A2FDE25C5B96300DB555B /* Views */,
 				454A2FCC25C5B95A00DB555B /* Utilities */,
 				454A2F9525C5B52300DB555B /* DatapixApp.swift */,
 				454A301E25C5BCFB00DB555B /* Assets.xcassets */,
@@ -127,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				454A2F9F25C5B52500DB555B /* Info.plist */,
+				454A2FE125C5B96300DB555B /* CardView.swift */,
+				454A2FE325C5B96300DB555B /* BottomSheetView.swift */,
 				454A2FC725C5B93B00DB555B /* Constants.swift */,
 				454A2FFF25C5BA0D00DB555B /* BlurStyleScreen.swift */,
 				453C4D1526A5205F008EDED9 /* TextAdjustmentsScreen.swift */,
@@ -160,23 +152,10 @@
 		454A2FCC25C5B95A00DB555B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				454A2FCE25C5B95A00DB555B /* UIImage+Resize.swift */,
 				454A2FCF25C5B95A00DB555B /* ImagePicker.swift */,
-				454A2FD025C5B95A00DB555B /* ImageSaver.swift */,
 				454A2FD125C5B95A00DB555B /* UserSettings.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		454A2FDE25C5B96300DB555B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				454A2FE025C5B96300DB555B /* MyShadowImageView.swift */,
-				454A2FE125C5B96300DB555B /* CardView.swift */,
-				454A2FE225C5B96300DB555B /* BlurStyleCheckBox.swift */,
-				454A2FE325C5B96300DB555B /* BottomSheetView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,7 +256,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				454A2FC825C5B93B00DB555B /* Constants.swift in Sources */,
-				454A2FE625C5B96300DB555B /* MyShadowImageView.swift in Sources */,
 				454A2FD625C5B95A00DB555B /* ImagePicker.swift in Sources */,
 				453C4D1626A5205F008EDED9 /* TextAdjustmentsScreen.swift in Sources */,
 				454A2FDA25C5B95A00DB555B /* UserSettings.swift in Sources */,
@@ -287,12 +265,9 @@
 				454A300625C5BA0D00DB555B /* PreviewScreen.swift in Sources */,
 				454A300225C5BA0D00DB555B /* BlurStrengthScreen.swift in Sources */,
 				454A300025C5BA0D00DB555B /* SettingsScreen.swift in Sources */,
-				454A2FD425C5B95A00DB555B /* UIImage+Resize.swift in Sources */,
 				454A300825C5BA0D00DB555B /* AddMoreInfoScreen.swift in Sources */,
 				454A2FE825C5B96300DB555B /* CardView.swift in Sources */,
 				454A2FEC25C5B96300DB555B /* BottomSheetView.swift in Sources */,
-				454A2FD825C5B95A00DB555B /* ImageSaver.swift in Sources */,
-				454A2FEA25C5B96300DB555B /* BlurStyleCheckBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +285,6 @@
 				454A2FDB25C5B95A00DB555B /* UserSettings.swift in Sources */,
 				4510BBDF25C635D50032C7EF /* Editbar.swift in Sources */,
 				4510BBE725C641770032C7EF /* BrushScreen.swift in Sources */,
-				454A2FEB25C5B96300DB555B /* BlurStyleCheckBox.swift in Sources */,
 				453C4D1226A51FE0008EDED9 /* BlurStyleScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
