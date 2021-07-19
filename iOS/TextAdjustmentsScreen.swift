@@ -22,7 +22,6 @@ struct TextAdjustmentsScreen: View {
             }
             .font(.system(size: 17, weight: .regular, design: .default))
             .toggleStyle(SwitchToggleStyle(tint: .accentColor))
-            
         }
         .listStyle(InsetGroupedListStyle())
         .navigationBarTitle("Visible data", displayMode: .inline)
