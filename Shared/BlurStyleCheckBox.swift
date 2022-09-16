@@ -67,11 +67,10 @@ struct RadioButtonGroup: View {
         #if os(macOS)
         
         #else
-        VStack {
-            ForEach(0..<items.count) { index in
-                RadioButton(self.items[index], callback: self.radioGroupCallback, selectedID: self.selectedId)
-            }
+        List(items, id: \.self) { item in
+            RadioButton(item, callback: self.radioGroupCallback, selectedID: self.selectedId)
         }
+        .listStyle(.plain)
         #endif
     }
     
